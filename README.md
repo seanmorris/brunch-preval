@@ -4,7 +4,7 @@
 
 Simple JS based preprocessing for Brunch static files.
 
-![seanmorris-shoutapi](https://img.shields.io/badge/seanmorris-brunch_preval-darkred?style=for-the-badge)  ![Size badge](https://img.shields.io/github/languages/code-size/seanmorris/brunch-preval?style=for-the-badge)
+[![seanmorris-shoutapi](https://img.shields.io/badge/seanmorris-brunch_preval-darkred?style=for-the-badge)](https://www.npmjs.com/package/brunch-preval) [![Size badge](https://img.shields.io/github/languages/code-size/seanmorris/brunch-preval?style=for-the-badge)](https://github.com/seanmorris/brunch-preval)
 
 ## Install
 
