@@ -1,0 +1,8 @@
+{
+  "name": "brunch-preval",
+  "version": "0.0.0",
+  "description": "Preprocess brunch files with plain JS.",
+  "main": "index.js",
+  "author": "Sean Morris <sean@seanmorr.is>",
+  "license": "Apache-2.0"
+}
