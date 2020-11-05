@@ -1,8 +1,14 @@
 {
   "name": "brunch-preval",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Preprocess brunch files with plain JS.",
   "main": "index.js",
   "author": "Sean Morris <sean@seanmorr.is>",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "loggy": "^1.0.8"
+  },
+  "files":[
+  	"index.js"
+  ]
 }

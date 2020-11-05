@@ -1,6 +1,6 @@
 ![avatar](https://avatars3.githubusercontent.com/u/640101?s=80&v=4)
 
-# brunch-preval v0.0.0
+# brunch-preval v0.0.1
 
 Simple JS based preprocessing for Brunch static files.
 
@@ -20,9 +20,33 @@ Simply put some javascript inside `{{ double curly braces }}`. The javascript wi
 <html><body>{{ Math.random() }}</body></html>
 ```
 
+## Escaping
+
+Use the backslash (`\`) character to escape a replacement
+
+```html
+<html><body>\{{ This won't be processed. }}</body></html>
+```
+
+### Escaping Escapes
+
+Backslashes may also be used to escape a backslash.
+
+```html
+<html>
+<body>
+	{{ "This WILL be processed." }}
+	\{{ "This won't be processed."" }}
+	\\{{ "This WILL be processed and will be preceeded by a single backslash." }}
+	\\\{{ "This won't be processed and will be preceeded by a single backslash." }}
+	\\\\{{ "This WILL be processed and will be preceeded by a 2 backslashes." }}
+</body>
+</html>
+```
+
 ### Alt Notation
 
-`<< angle brackets >>` may also be used.
+`<<< triple angle brackets >>>` or `((( triple parens )))`  may also be used.
 
 ## Configure
 
@@ -32,12 +56,13 @@ You can process more than just HTML files by specifying a regex for the `include
 
 Certain files by may be excluded by specifying a regex for the `exclude` key.
 
-Javascript source files may be preprocessed, but replacements may only appear in comments as of yet. This restriction does not apply to js files that appear in the `assets` directory.
+By default, `exclude` will be **empty** and `include` will be set to `/\.(?:html?|xml|svg|css|txt|md)?$/`.
+
 
 ```javascript
 exports.plugins = {
 	preval:{
-		include: /\.(xml|md|html)$/,
+		include: /\.(?:html?|xml|svg|css|txt|md)?$/,
 		exclude: /something.xml$/,
 	}
 };
