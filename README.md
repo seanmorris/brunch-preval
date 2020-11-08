@@ -1,10 +1,10 @@
 ![avatar](https://avatars3.githubusercontent.com/u/640101?s=80&v=4)
 
-# brunch-preval v0.0.1
+# brunch-preval v0.0.3
 
-Simple JS based preprocessing for Brunch static files.
+Simple JS based preprocessing for Brunch static HTML files.
 
-[![seanmorris-shoutapi](https://img.shields.io/badge/seanmorris-brunch_preval-darkred?style=for-the-badge)](https://www.npmjs.com/package/brunch-preval) [![Size badge](https://img.shields.io/github/languages/code-size/seanmorris/brunch-preval?style=for-the-badge)](https://github.com/seanmorris/brunch-preval)
+[![seanmorris-brunch-preval](https://img.shields.io/badge/seanmorris-brunch_preval-darkred?style=for-the-badge)](https://www.npmjs.com/package/brunch-preval) [![Size badge](https://img.shields.io/github/languages/code-size/seanmorris/brunch-preval?style=for-the-badge)](https://github.com/seanmorris/brunch-preval)
 
 ## Install
 
@@ -14,7 +14,7 @@ $ npm i brunch-preval
 
 ## Use
 
-Simply put some javascript inside `{{ double curly braces }}`. The javascript will be evaluated, and the results will be interpolated in its place.
+Simply open a static HTML file and put some javascript inside `{{ double curly braces }}`. The javascript will be evaluated, and the results will be interpolated in its place.
 
 ```html
 <html><body>{{ Math.random() }}</body></html>
@@ -50,27 +50,28 @@ Backslashes may also be used to escape a backslash.
 
 ## Configure
 
+See also [configuring Brunch](https://brunch.io/docs/config)
+
 ### Include/exclude
 
-You can process more than just HTML files by specifying a regex for the `include` key.
+You can more finely control which HTML files are processed by specifying a regex for the `include` & `exclude` keys.
 
-Certain files by may be excluded by specifying a regex for the `exclude` key.
-
-By default, `exclude` will be **empty** and `include` will be set to `/\.(?:html?|xml|svg|css|txt|md)?$/`.
-
+If a file matches both `include` and `exclude` the `include` will take precedence.
 
 ```javascript
 exports.plugins = {
 	preval:{
-		include: /\.(?:html?|xml|svg|css|txt|md)?$/,
-		exclude: /something.xml$/,
+		exclude: /thing.html$/,
+		, include: /something.html$/,
 	}
 };
 ```
 
 ### Tokens
 
-Tokens can be specified as well. Tokens may be static values or the results of a function. Dynamic tokens will be generated once per compile pass, and will have the same value for all files processed in each pass.
+Tokens can be specified in your Brunch config.
+
+Tokens may be static values or the results of a function. Dynamic tokens will be generated once per compile pass, and will have the same value for all files processed in each pass.
 
 Tokens in templates can be accessed on the `_` object.
 
@@ -91,7 +92,7 @@ exports.plugins = {
 
 ### Suppress Logging
 
-Set `log` to `false` to stop BrunchPreval from logging to the console.
+Set `log` to `false` in your Brunch config to stop BrunchPreval from logging to the console during compilation.
 
 ```javascript
 exports.plugins = {

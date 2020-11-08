@@ -12,7 +12,7 @@ class BrunchPreval
 	{
 		this.config         = config.plugins.preval || {};
 
-		this.config.include = this.config.include || /\.(?:html?|xml|svg|css|txt|md)?$/;
+		this.config.include = this.config.include || /\.html?$/;
 		this.config.exclude = this.config.exclude || false;
 		this.config.tokens  = this.config.tokens  || {};
 
@@ -38,23 +38,12 @@ class BrunchPreval
 
 	processFile({data, path})
 	{
-		// this.config.log && logger && logger.info(
-		// 	'BrunchPreval is checking'
-		// 	, path
-		// 	, '...'
-		// );
-
-		if(this.config.exclude)
+		if(this.config.exclude && path.match(this.config.exclude))
 		{
-			if(path.match(this.config.exclude))
+			if(this.config.include && !path.match(this.config.include))
 			{
-				return Promise.resolve({data, path});
+				return null;
 			}
-		}
-
-		if(!path.match(this.config.include))
-		{
-			return Promise.resolve({data, path});
 		}
 
 		const _ = {};
@@ -149,13 +138,20 @@ class BrunchPreval
 			);
 		}
 
+		// const extension = path.split('.').pop();
+
+		// Object.assign(BrunchPreval.prototype, {
+		// 	staticTargetExtension: extension
+		// 	, targetExtension: extension
+		// });
+
 		return Promise.resolve({data, path});
 	}
 }
 
 const type         = 'template';
 const brunchPlugin = true;
-const pattern      = /(?:.*)$/;
+const pattern      = /\.html$/;
 
 Object.assign(BrunchPreval.prototype, {
 	brunchPlugin

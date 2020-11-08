@@ -1,7 +1,8 @@
 {
   "name": "brunch-preval",
   "version": "0.0.1",
-  "description": "Preprocess brunch files with plain JS.",
+  "description": "Preprocess static HTML files in Brunch with plain JS.",
+  "keywords": "",
   "main": "index.js",
   "author": "Sean Morris <sean@seanmorr.is>",
   "license": "Apache-2.0",
