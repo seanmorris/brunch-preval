@@ -1,6 +1,6 @@
 {
   "name": "brunch-preval",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Preprocess static HTML files in Brunch with plain JS.",
   "keywords": "",
   "main": "index.js",
