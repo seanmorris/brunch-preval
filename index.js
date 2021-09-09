@@ -12,7 +12,7 @@ class BrunchPreval
 	{
 		this.config         = config.plugins.preval || {};
 
-		this.config.include = this.config.include || /\.html?$/;
+		this.config.include = this.config.include || /\.(html?|json)$/;
 		this.config.exclude = this.config.exclude || false;
 		this.config.tokens  = this.config.tokens  || {};
 
@@ -62,7 +62,7 @@ class BrunchPreval
 				}
 
 				this.config.log && logger && logger.info(
-					'BrunchPreval 0.0.1 set token'
+					'BrunchPreval 0.0.3 set token'
 					, token
 					, 'to'
 					, this.tokens[token]
