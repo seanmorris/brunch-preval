@@ -62,7 +62,7 @@ class BrunchPreval
 				}
 
 				this.config.log && logger && logger.info(
-					'BrunchPreval 0.0.3 set token'
+					'BrunchPreval 0.0.4 set token'
 					, token
 					, 'to'
 					, this.tokens[token]
